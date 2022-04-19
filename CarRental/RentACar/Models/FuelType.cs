@@ -6,9 +6,7 @@ namespace RentACar.Models
     {
         [Key]
         public byte FuelTypeID { get; set; }
-        [Required(ErrorMessage = "{0} boş bırakılamaz!"),
-        Display(Name = "Yakıt"),
-        StringLength(20, MinimumLength = 3, ErrorMessage = "{0} {2}-{1} karakter arasında olmalı!")]
+        [Required(ErrorMessage = "Yakıt Tipi boş geçilemez!"), Display(Name = "Yakıt Türü"), StringLength(20, MinimumLength = 3, ErrorMessage = "{0} {2}-{1} Karakter olmalı!")]
         public string FuelTypeName { get; set; }
     }
 }

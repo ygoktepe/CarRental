@@ -30,8 +30,12 @@
                     <div class="col-sm-12">
 
                         <div class="wrapper-page">
-
-                            <div class="m-t-40 card-box">
+                         
+                        <div class="m-t-40 card-box">
+                               @using (Html.BeginForm("Giris", "Hesap"))
+                        {
+                            <button class="btn btn-dark">GERİ</button>
+                        }
                                 <div class="text-center">
                                     <h2 class="text-uppercase m-t-0 m-b-30">
                                         <a href="index.html" class="text-success">
@@ -42,15 +46,15 @@
                                 </div>
                                 <div class="account-content">
                                     <div class="text-center m-b-20">
-                                        <p class="text-muted m-b-0 line-h-24">Kurtarmak istediğiniz hesaba ait e-posta adresinizi giriniz  </p>
+                                        <p class="text-muted m-b-0 line-h-24">Kurtarmak istediğiniz hesaba ait e-posta adresinizi giriniz. </p>
                                     </div>
 
                                     <form class="form-horizontal" action="#">
 
                                         <div class="form-group m-b-20">
                                             <div class="col-12">
-                                                <label for="emailaddress">E-posta adresi</label>
-                                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="">
+                                                <label for="emailaddress">E-posta Adresi</label>
+                                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="bilge@xyz.com">
                                             </div>
                                         </div>
 
@@ -71,7 +75,7 @@
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted"> <a href="pages-login.html" class="text-dark m-l-5">Oturum aç</a></p>
+                                    <p class="text-muted"> <a href="pages-login.html" class="text-dark m-l-5">Oturum Aç</a></p>
                                 </div>
                             </div>
 

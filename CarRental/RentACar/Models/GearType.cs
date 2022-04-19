@@ -6,9 +6,7 @@ namespace RentACar.Models
     {
         [Key]
         public byte GearTypeID { get; set; }
-        [Required(ErrorMessage = "{0} boş bırakılamaz!"),
-        Display(Name = "Vites Türü"),
-        StringLength(20, MinimumLength = 3, ErrorMessage = "{0} {2}-{1} karakter arasında olmalı!")]
+        [Required(ErrorMessage = "Vites Tipi boş geçilemez!"), Display(Name = "Vites Tipi"), StringLength(20, MinimumLength = 3, ErrorMessage = "{0} {2}-{1} Karakter olmalı!")]
         public string GearTypeName { get; set; }
     }
 }

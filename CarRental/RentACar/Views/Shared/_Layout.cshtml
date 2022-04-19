@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -8,8 +10,7 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <!-- App favicon -->
-       <partial name="_Style" />
+      <partial name="_Stylee" />
 
     </head>
 
@@ -17,15 +18,16 @@
     <body>
 
         <!-- Begin page -->
-       <partial name="_Header" />
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <partial name="_Headerr" />
+
             <!-- Top Bar End -->
 
 
             <!-- ========== Left Sidebar Start ========== -->
-           
-
-                <!--- Sidemenu -->
-               <partial name="_Sidemenu" />
+        <partial name="_Leftbarr" />
             <!-- Left Sidebar End -->
 
 
@@ -40,14 +42,15 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                @RenderBody()
+                               @RenderBody()
                             </div>
                         </div>
 
                     </div> <!-- container -->
 
+                    <partial name="_Footerr" />
 
-                    <partial name="_Footer" />
+                    
 
                 </div> <!-- content -->
 
@@ -59,11 +62,16 @@
             <!-- ============================================================== -->
 
 
-      
+        </div>
         <!-- END wrapper -->
 
 
 
-        <partial name="_Javascript" />
+        <!-- jQuery  -->
+      <partial name="_Javascriptt" />
+
+        <!-- App js -->
+
+
     </body>
 </html>

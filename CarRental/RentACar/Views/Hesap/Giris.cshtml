@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="~/adminn/~/adminn/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="~/adminn/assets/images/favicon.ico">
 
         <!-- App css -->
         <link href="~/adminn/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -30,8 +30,12 @@
                     <div class="col-sm-12">
 
                         <div class="wrapper-page">
-
+                               
                             <div class="m-t-40 card-box">
+                                @using (Html.BeginForm("Index", "Home"))
+                        {
+                            <button class="btn btn-dark">GERİ</button>
+                        }
                                 <div class="text-center">
                                     <h2 class="text-uppercase m-t-0 m-b-30">
                                         <a href="index.html" class="text-success">
@@ -45,14 +49,14 @@
 
                                         <div class="form-group m-b-20">
                                             <div class="col-12">
-                                                <label for="emailaddress">Mail Adresi</label>
-                                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Mailinizi giriniz">
+                                                <label for="emailaddress">E-posta Adresi</label>
+                                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="bilge@xyz.com">
                                             </div>
                                         </div>
 
                                         <div class="form-group m-b-20">
                                             <div class="col-12">
-                                                <a asp-controller="Hesap" asp-action="SifreSifirla" class="text-muted pull-right font-14">Şifrenizi mi unuttunuz?</a>
+                                                <a asp-controller="Hesap" asp-action="Sifresifirla" class="text-muted pull-right font-14">Şifrenizi mi unuttunuz?</a>
                                                 <label for="password">Şifre</label>
                                                 <input class="form-control" type="password" required="" id="password" placeholder="Şifrenizi giriniz">
                                             </div>
@@ -71,7 +75,7 @@
 
                                         <div class="form-group account-btn text-center m-t-10">
                                             <div class="col-12">
-                                                <button class="btn btn-lg btn-primary btn-block" type="submit">Giriş Yap</button>
+                                                <button class="btn btn-lg btn-primary btn-block" type="submit">Oturum Aç</button>
                                             </div>
                                         </div>
 
@@ -86,7 +90,7 @@
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Hesabınız yok mu? <a asp-controller="Hesap" asp-action="Kayit" class="text-dark m-l-5">Kayıt ol</a></p>
+                                    <p class="text-muted">Hesabınız yok mu? <a asp-controller="Hesap" asp-action="Kayit" class="text-dark m-l-5">Kaydol</a></p>
                                 </div>
                             </div>
 

@@ -4,7 +4,7 @@
 
 namespace RentACar.Migrations
 {
-    public partial class bir : Migration
+    public partial class FirstInitialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,6 +69,18 @@ namespace RentACar.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    RoleID = table.Column<byte>(type: "tinyint", nullable: false),
+                    RoleName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.RoleID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cars",
                 columns: table => new
                 {
@@ -119,6 +131,30 @@ namespace RentACar.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    UserID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    MobileNO = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    RoleID = table.Column<byte>(type: "tinyint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.UserID);
+                    table.ForeignKey(
+                        name: "FK_Users_Roles_RoleID",
+                        column: x => x.RoleID,
+                        principalTable: "Roles",
+                        principalColumn: "RoleID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "BodyTypes",
                 columns: new[] { "BodyTypeID", "BodyTypeName" },
@@ -138,7 +174,7 @@ namespace RentACar.Migrations
                     { (byte)1, "Fiat" },
                     { (byte)2, "Renault" },
                     { (byte)3, "Mercedes" },
-                    { (byte)4, "BMW" }
+                    { (byte)4, "BMV" }
                 });
 
             migrationBuilder.InsertData(
@@ -172,7 +208,18 @@ namespace RentACar.Migrations
                     { (byte)1, "Otomatik" },
                     { (byte)2, "Manuel" },
                     { (byte)3, "Tiptritonik" },
-                    { (byte)4, "Hibrid" }
+                    { (byte)4, "Hibrit" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "RoleID", "RoleName" },
+                values: new object[,]
+                {
+                    { (byte)1, "Pasif Kullanıcı" },
+                    { (byte)2, "Aktif Kullanıcı" },
+                    { (byte)3, "Admin" },
+                    { (byte)4, "Supervisor" }
                 });
 
             migrationBuilder.InsertData(
@@ -781,12 +828,20 @@ namespace RentACar.Migrations
                 name: "IX_Cars_GearTypeID",
                 table: "Cars",
                 column: "GearTypeID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_RoleID",
+                table: "Users",
+                column: "RoleID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Cars");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "BodyTypes");
@@ -802,6 +857,9 @@ namespace RentACar.Migrations
 
             migrationBuilder.DropTable(
                 name: "GearTypes");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
         }
     }
 }
